@@ -47,7 +47,7 @@
         </dependency>
         <dependency>
             <groupId>org.primefaces.themes</groupId>
-            <artifactId>performance</artifactId>
+            <artifactId>overcast</artifactId>
             <version>1.0.10</version>
         </dependency>
     </dependencies>
