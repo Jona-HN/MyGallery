@@ -1,6 +1,8 @@
 package com.jona.gallery;
 
 import org.primefaces.event.FileUploadEvent;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
@@ -89,18 +91,23 @@ public class MyGalleryBean implements Serializable
 
                 MyPhoto newPhoto = new MyPhoto(fn, false);
                 photos.add(newPhoto);
+
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Files were successfully uploaded!", null));
             }
             catch (FileNotFoundException ex)
             {
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "File " + event.getFile().getFileName() + " cannot be found!", null));
                 Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (IOException ex)
             {
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "File " + event.getFile().getFileName() + " cannot be uploaded!", null));
                 Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else
         {
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "File does not exist!", null));
             Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, "File does not exist", "File does not exist");
         }
     }

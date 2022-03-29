@@ -89,10 +89,11 @@
                 <p:fileUpload id="uploadFileId"
                               fileUploadListener="#{myGalleryBean.handleFileUpload}"
                               mode="advanced" multiple="true"
-                              update="uploadFileId, :tableFormId:tablePhotosId"
+                              update="uploadFileId, :tableFormId:tablePhotosId, growlId"
                               sizeLimit="2097152" fileLimit="300"
                               allowTypes="/(\.|\/)(gif|jpeg|jpg|png)$/"
                               dragDropSupport="false" />
+                <p:growl id="growlId"/>
             </h:form>
         </p:dialog>
 
