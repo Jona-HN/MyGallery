@@ -93,9 +93,15 @@ public class MyGalleryBean implements Serializable
             catch (FileNotFoundException ex)
             {
                 Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+            catch (IOException ex)
+            {
+                Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else
+        {
+            Logger.getLogger(MyGalleryBean.class.getName()).log(Level.SEVERE, "File does not exist", "File does not exist");
         }
     }
 }
