@@ -37,6 +37,20 @@
 
            <p:layoutUnit position="center">
                <p:panelGrid columns="2">
+                   <h:outputText value="My Photos" />
+                   <p:ajaxStatus>
+                       <f:facet name="default">
+                            <h:outputText value="My Gallery" />
+                       </f:facet>
+
+                       <f:facet name="start">
+                           <p:graphicImage library="icons" name="ajax-loader.gif" height="10" />
+                       </f:facet>
+
+                       <f:facet name="complete">
+                            <h:outputText value="My Gallery" />
+                       </f:facet>
+                   </p:ajaxStatus>
                    <h:form id="tableFormId">
                        <p:dataTable id="tablePhotosId"
                                     value="#{myGalleryBean.photos}"
